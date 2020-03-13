@@ -23,7 +23,7 @@ Apps Script プロジェクトを作成し、プロジェクトIDを`.clasp.json
 `src/`ディレクトリ配下にスクリプトを書き、
 
 ```bash
-$ clasp push
+$ npx clasp push
 ```
 
 または
