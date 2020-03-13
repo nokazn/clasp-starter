@@ -1,5 +1,7 @@
 # clasp-starter
 
+[![clasp](https://img.shields.io/badge/built%20with-clasp-4285f4.svg)](https://github.com/google/clasp)
+
 ## usage
 
 ```bash
@@ -13,11 +15,12 @@ Apps Script プロジェクトを作成し、プロジェクトIDを`.clasp.json
 ```json
 {
   "scriptId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "rootDir": "src/"
+  "rootDir": "src/",
+  "fileExtension": "ts"
 }
 ```
 
-`./src/`ディレクトリ配下にスクリプトを書き、
+`src/`ディレクトリ配下にスクリプトを書き、
 
 ```bash
 $ clasp push
@@ -42,8 +45,8 @@ var exports = exports || {};
 ```
 
 で定義されたグローバル変数`exports`に入れられてしまう。
-GAS ではファイルごとのモジュールをでやり取りする仕組みがなく、ファイルのトップレベルのスコープがそのままグローバルスコープである。
 
+GAS ではファイルごとのモジュールをでやり取りする仕組みがなく、ファイルのトップレベルのスコープがそのままグローバルスコープである。
 そのため、単に`export hoge`とするだけでは、他のファイルで上書きされてしまう可能性がある。
 
 ファイルごとにスコープを区切るためには、全体を`namespace`で囲めばよい。
