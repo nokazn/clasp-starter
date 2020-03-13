@@ -14,6 +14,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src/*.ts -c ./.eslintrc.js && tsc --noEmit ./src/*.ts",
-    "deploy": "clasp push"
+    "push": "clasp push"
   }
 }

@@ -26,7 +26,7 @@ $ clasp push
 または
 
 ```
-$ npm run deploy
+$ npm run push
 ```
 
 として GAS にアップロードする。
