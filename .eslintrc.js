@@ -1,10 +1,10 @@
 module.exports = {
     "env": {
       "es6": true,
-      "node": true
+      "node": true,
+      "googleappsscript/googleappsscript": true,
     },
     "extends": [
-      "plugin:@typescript-eslint/eslint-recommended",
       "airbnb-base",
       "plugin:import/errors",
       "plugin:import/warnings",
@@ -20,7 +20,8 @@ module.exports = {
       "sourceType": "module"
     },
     "plugins": [
-      "@typescript-eslint"
+      "@typescript-eslint",
+      "googleappsscript",
     ],
     "rules": {
       "import/extensions": [2, {
