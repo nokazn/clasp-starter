@@ -3,6 +3,7 @@ module.exports = {
       "es6": true,
       "node": true,
       "googleappsscript/googleappsscript": true,
+      "jest/globals": true,
     },
     "extends": [
       "airbnb-base",
@@ -22,6 +23,7 @@ module.exports = {
     "plugins": [
       "@typescript-eslint",
       "googleappsscript",
+      "jest",
     ],
     "rules": {
       "import/extensions": [2, {
