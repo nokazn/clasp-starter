@@ -18,7 +18,8 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint ./src/*.ts -c ./.eslintrc.js && tsc --noEmit **/*.ts --lib es6",
+    "lint": "eslint ./src/*.ts -c ./.eslintrc.js && tsc **/*.ts --noEmit --lib es6",
+    "lint:fix": "eslint ./src/*.ts -c ./.eslintrc.js --fix && tsc **/*.ts --noEmit --lib es6",
     "push": "clasp push"
   }
 }
