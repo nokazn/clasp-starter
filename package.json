@@ -18,7 +18,7 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint ./src/*.ts -c ./.eslintrc.js && tsc --noEmit **/*.ts --lib es2018",
+    "lint": "eslint ./src/*.ts -c ./.eslintrc.js && tsc --noEmit **/*.ts --lib es6",
     "push": "clasp push"
   }
 }
