@@ -36,6 +36,43 @@ $ npm run push
 
 ## tips
 
+### `Console`
+
+GAS 側の `Console` と `node_modules/typescript/lib/lib.dom.d.ts` の `Console` の型宣言が二重にされていて、
+
+```bash
+$ tsc --noEmit **/*.ts
+
+node_modules/@types/google-apps-script/google-apps-script.base.d.ts:517:13 - error TS2403: Subsequent variable declarations must have the same type.  Variable 'console' must be of type 'Console', but here has type 'console'.
+
+517 declare var console: GoogleAppsScript.Base.console;
+                ~~~~~~~
+
+  node_modules/typescript/lib/lib.dom.d.ts:19729:13
+    19729 declare var console: Console;
+                      ~~~~~~~
+    'console' was also declared here.
+```
+
+のように型チェックを行おうとするとエラーが発生する。DOM のライブラリで宣言されている `Console` を読み込んでしまっているのが原因らしい。
+
+`tsconfig.json` 内で `target: es5` と指定し、`lib` オプションを指定しない場合、デフォルトで
+
+- DOM
+- ES5
+- ScriptHost
+
+のライブラリが読み込まれてしまう。
+
+`DOM` ライブラリを読み込ませないために、npm scripts 内のコマンドのオプションを変更する必要がある。(`tsconfig.json` 内の `lib` オプションを指定してもなぜかエラーは解消されなかった)
+
+```diff
+- "lint": "eslint **/*.ts -c ./.eslintrc.js && tsc --noEmit **/*.ts,
++ "lint": "eslint **/*.ts -c ./.eslintrc.js && tsc --noEmit **/*.ts --lib es6",
+```
+
+[参考](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32585)
+
 ### モジュール
 
 ESModules のノリで普通に`export`すると、GAS側では
