@@ -6,10 +6,8 @@ module.exports = {
       "jest/globals": true,
     },
     "extends": [
+      "plugin:@typescript-eslint/eslint-recommended",
       "airbnb-base",
-      "plugin:import/errors",
-      "plugin:import/warnings",
-      "plugin:import/typescript",
     ],
     "globals": {
       "Atomics": "readonly",
@@ -31,7 +29,6 @@ module.exports = {
         "ts": "never",
         "json": "never"
       }],
-      "indent": [2, 2],
       "lines-between-class-members": 0,
       "no-console": 0,
       // typescript-eslint の no-unuserd-vars を有効にする
