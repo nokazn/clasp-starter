@@ -113,3 +113,7 @@ function main() {
 ## 参考
 
 [google/clasp: 🔗 Command Line Apps Script Projects](https://github.com/google/clasp/)
+
+## License
+
+MIT
