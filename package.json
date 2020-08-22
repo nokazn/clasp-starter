@@ -1,4 +1,19 @@
 {
+  "name": "clasp-starter",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nokazn/clasp-starter.git"
+  },
+  "author": "nokazn",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write ./src/**/*.{t,j}s",
+    "lint": "eslint ./src/*.ts -c ./.eslintrc.js && tsc **/*.ts --noEmit --lib es6",
+    "lint:fix": "eslint ./src/*.ts -c ./.eslintrc.js --fix && tsc **/*.ts --noEmit --lib es6",
+    "test": "jest",
+    "push": "clasp push"
+  },
   "dependencies": {},
   "devDependencies": {
     "@google/clasp": "^2.3.0",
@@ -16,12 +31,5 @@
     "prettier": "^2.0.5",
     "ts-jest": "^26.2.0",
     "typescript": "^3.9.7"
-  },
-  "scripts": {
-    "format": "prettier --write ./src/**/*.{t,j}s",
-    "lint": "eslint ./src/*.ts -c ./.eslintrc.js && tsc **/*.ts --noEmit --lib es6",
-    "lint:fix": "eslint ./src/*.ts -c ./.eslintrc.js --fix && tsc **/*.ts --noEmit --lib es6",
-    "test": "jest",
-    "push": "clasp push"
   }
 }
