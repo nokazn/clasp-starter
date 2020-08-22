@@ -8,17 +8,20 @@
     "@typescript-eslint/parser": "^2.34.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-googleappsscript": "^1.0.3",
     "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-jest": "^23.20.0",
-    "typescript": "^3.9.7",
     "jest": "^26.4.2",
-    "ts-jest": "^26.2.0"
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.2.0",
+    "typescript": "^3.9.7"
   },
   "scripts": {
-    "test": "jest",
+    "format": "prettier --write ./src/**/*.{t,j}s",
     "lint": "eslint ./src/*.ts -c ./.eslintrc.js && tsc **/*.ts --noEmit --lib es6",
     "lint:fix": "eslint ./src/*.ts -c ./.eslintrc.js --fix && tsc **/*.ts --noEmit --lib es6",
+    "test": "jest",
     "push": "clasp push"
   }
 }

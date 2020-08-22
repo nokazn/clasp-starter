@@ -1,0 +1,9 @@
+{
+  // ファイル保存時に lint を走らせる
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true
+  },
+  // ファイル保存時にフォーマットする
+  "editor.formatOnSave": true,
+}
