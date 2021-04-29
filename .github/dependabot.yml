@@ -1,0 +1,56 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: eslint-plugin-jest
+    versions:
+    - 24.1.3
+    - 24.1.5
+    - 24.1.9
+    - 24.2.0
+    - 24.2.1
+    - 24.3.1
+    - 24.3.2
+    - 24.3.3
+    - 24.3.4
+    - 24.3.5
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+  - dependency-name: "@types/jest"
+    versions:
+    - 26.0.20
+    - 26.0.21
+    - 26.0.22
+  - dependency-name: "@types/google-apps-script"
+    versions:
+    - 1.0.22
+    - 1.0.23
+    - 1.0.24
+    - 1.0.25
+    - 1.0.26
+    - 1.0.27
+    - 1.0.28
+    - 1.0.30
+  - dependency-name: ts-jest
+    versions:
+    - 26.5.0
+    - 26.5.1
+    - 26.5.2
+    - 26.5.3
+    - 26.5.4
+  - dependency-name: typescript
+    versions:
+    - 4.1.3
+    - 4.1.4
+    - 4.1.5
+    - 4.2.2
+    - 4.2.3
+  - dependency-name: node-notifier
+    versions:
+    - 8.0.1
