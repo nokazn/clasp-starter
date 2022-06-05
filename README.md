@@ -2,14 +2,18 @@
 
 [![clasp](https://img.shields.io/badge/built%20with-clasp-4285f4.svg)](https://github.com/google/clasp)
 
-## usage
+## Usage
 
 ```bash
 $ git clone https://github.com/nokazn/clasp-starter
+# パッケージのインストール
 $ npm i
+
+# ログイン (~/.clasprc.json に認証情報が保存される)
+$ npx clasp login
 ```
 
-Apps Script プロジェクトを作成し、プロジェクトIDを`.clasp.json.scriptId`に設定する。
+Apps Script プロジェクトを作成し、プロジェクト ID を`.clasp.json.scriptId`に設定する。
 `rootDir`を`src/`配下にすることで、clasp が`node_modules`などを見にいかないようにしている。
 
 ```json
@@ -20,21 +24,21 @@ Apps Script プロジェクトを作成し、プロジェクトIDを`.clasp.json
 }
 ```
 
-`src/`ディレクトリ配下にスクリプトを書き、
+`src/` ディレクトリ配下にスクリプトを書く。
+
+push する前に、[設定 - Apps Script](https://script.google.com/home/usersettings) から Apps Script API を有効化しておく。
 
 ```bash
 $ npx clasp push
-```
 
-または
+# or
 
-```
 $ npm run push
 ```
 
-として GAS にアップロードする。
+を実行して GAS にアップロードする。
 
-## tips
+## Tips
 
 ### `Console`
 
@@ -54,7 +58,7 @@ node_modules/@types/google-apps-script/google-apps-script.base.d.ts:517:13 - err
     'console' was also declared here.
 ```
 
-のように型チェックを行おうとするとエラーが発生する。DOM のライブラリで宣言されている `Console` を読み込んでしまっているのが原因らしい。
+DOM のライブラリで宣言されている `Console` と重複して宣言してしまっているのが原因で、上記のように型チェックを行おうとするとエラーが発生する。
 
 `tsconfig.json` 内で `target: es5` と指定し、`lib` オプションを指定しない場合、デフォルトで
 
@@ -64,11 +68,10 @@ node_modules/@types/google-apps-script/google-apps-script.base.d.ts:517:13 - err
 
 のライブラリが読み込まれてしまう。
 
-`DOM` ライブラリを読み込ませないために、npm scripts 内のコマンドのオプションを変更する必要がある。(`tsconfig.json` 内の `lib` オプションを指定してもなぜかエラーは解消されなかった)
+`DOM` ライブラリを読み込ませないために、`tsconfig.json` 内の `lib` オプションを変更し、`types` オプションで `@types/node` を読み込まないよう設定している。
 
-```diff
-- "lint": "eslint **/*.ts -c ./.eslintrc.js && tsc --noEmit **/*.ts,
-+ "lint": "eslint **/*.ts -c ./.eslintrc.js && tsc --noEmit **/*.ts --lib es6",
+```json
+
 ```
 
 [参考](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/32585)
@@ -108,7 +111,7 @@ function main() {
 }
 ```
 
-こうすることで、TypeScript の型システムの恩恵を受けながらモジュール化を実現することができる。
+上記のように書くと、TypeScript の型システムの恩恵を受けながらモジュール化を実現することができる。
 
 ## 参考
 
