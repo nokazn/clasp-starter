@@ -8,9 +8,11 @@
   "author": "nokazn",
   "license": "MIT",
   "scripts": {
-    "format": "prettier --write ./src/**/*.{t,j}s",
-    "lint": "eslint ./src/*.ts -c ./.eslintrc.js && tsc **/*.ts --noEmit --lib es6",
-    "lint:fix": "eslint ./src/*.ts -c ./.eslintrc.js --fix && tsc **/*.ts --noEmit --lib es6",
+    "check:format": "prettier --check ./src/**/*.{t,j}s",
+    "check:lint": "eslint ./src/*.ts -c ./.eslintrc.js",
+    "check:type": "tsc",
+    "fix:format": "prettier --write ./src/**/*.{t,j}s",
+    "fix:lint": "eslint ./src/*.ts -c ./.eslintrc.js --fix && tsc **/*.ts",
     "test": "jest",
     "push": "clasp push"
   },
