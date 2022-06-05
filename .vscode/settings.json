@@ -2,8 +2,18 @@
   // ファイル保存時に lint を走らせる
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.fixAll.tslint": true
   },
   // ファイル保存時にフォーマットする
   "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "node_modules": true
+  },
+  "explorerExclude.backup": {},
 }
