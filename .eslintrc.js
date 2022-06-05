@@ -1,3 +1,7 @@
+const ALLOW = 0;
+// const WARN = 1;
+const ERROR = 2;
+
 module.exports = {
   env: {
     es6: true,
@@ -5,35 +9,34 @@ module.exports = {
     'googleappsscript/googleappsscript': true,
     'jest/globals': true,
   },
-  extends: [
-    'plugin:@typescript-eslint/eslint-recommended',
-    'airbnb-base',
-    'prettier',
-    'prettier/@typescript-eslint',
-  ],
+  extends: ['plugin:@typescript-eslint/eslint-recommended', 'airbnb-base', 'prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2021,
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'googleappsscript', 'jest'],
   rules: {
     'import/extensions': [
-      2,
+      ERROR,
       {
         js: 'never',
         ts: 'never',
         json: 'never',
       },
     ],
-    'lines-between-class-members': 0,
-    'no-console': 0,
-    // typescript-eslint の no-unuserd-vars を有効にする
-    'no-unused-vars': 0,
-    '@typescript-eslint/no-unused-vars': 2,
+    'import/prefer-default-export': ALLOW,
+    'import/no-unresolved': ALLOW,
+
+    'lines-between-class-members': ALLOW,
+    'no-console': ALLOW,
+
+    // typescript-eslint の no-unused-vars を有効にする
+    'no-unused-vars': ALLOW,
+    '@typescript-eslint/no-unused-vars': ERROR,
   },
 };
