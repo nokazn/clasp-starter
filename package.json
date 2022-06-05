@@ -14,6 +14,7 @@
     "fix:format": "prettier --write ./src/**/*.{t,j}s",
     "fix:lint": "eslint ./src/*.ts -c ./.eslintrc.js --fix && tsc **/*.ts",
     "test": "jest",
+    "build": "tsc --noEmit false -p tsconfig.build.json",
     "push": "clasp push"
   },
   "devDependencies": {
