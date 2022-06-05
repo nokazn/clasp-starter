@@ -8,9 +8,11 @@
   "author": "nokazn",
   "license": "MIT",
   "scripts": {
-    "check:format": "prettier --check ./src/**/*.{t,j}s",
-    "check:lint": "eslint ./src/*.ts -c ./.eslintrc.js",
+    "check": "run-s -c \"check:*\"",
+    "check:format": "prettier --check \"./src/**/*.{t,j}s\" --ignore-unknown",
+    "check:lint": "eslint \"./src/**/*.{t,j}s\" -c ./.eslintrc.js",
     "check:type": "tsc",
+    "fix": "run-s -c \"fix:*\"",
     "fix:format": "prettier --write ./src/**/*.{t,j}s",
     "fix:lint": "eslint ./src/*.ts -c ./.eslintrc.js --fix && tsc **/*.ts",
     "test": "jest",
@@ -31,6 +33,7 @@
     "eslint-plugin-googleappsscript": "^1.0.4",
     "eslint-plugin-jest": "^26.5.1",
     "jest": "^28.1.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
     "ts-node": "^10.8.1",
     "typescript": "^4.0.3"
